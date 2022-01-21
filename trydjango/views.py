@@ -5,6 +5,6 @@ from articles.models import Article
 
 
 def home(request):
-    articles = Article.objects.get(id=2)
+    articles = Article.objects.all()
 
     return render(request,'home.html',{'articles': articles})
