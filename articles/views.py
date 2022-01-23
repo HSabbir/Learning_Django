@@ -10,6 +10,19 @@ def article_detail(request, id= None):
     return render(request, 'article/details.html', {'article' : article_object})
 
 
+def article_create(request):
+    context = {}
+    if request.method == "POST" :
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+
+        article_obj = Article.objects.create(title=title, content=content)
+        context['article'] = article_obj
+        context['created'] = True
+        created = True
+
+    return render(request,'article/create.html', context)
+
 def article_search(request):
     query_dict = request.GET
 
