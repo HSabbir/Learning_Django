@@ -7,14 +7,12 @@
         <br><br>
         <form method="post">
             {% csrf_token %}
-
-            <input type="text" name="title" placeholder="title"><br><br>
-            <textarea name="content" placeholder="content"></textarea><br>
+            {{form.as_p}}
             <button type="submit">Submit</button>
         </form>
     </div>
     {% else %}
-    <a href="/article/{{article.id}}/">{{article.title}}</a>
+<!--    <a href="/article/{{article.id}}/">{{article.title}}</a>-->
 
     {% endif %}
 <!--    <br>-->
